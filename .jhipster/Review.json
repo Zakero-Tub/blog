@@ -1,0 +1,55 @@
+{
+    "name": "Review",
+    "fields": [
+        {
+            "fieldName": "content",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "rating",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "votes",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "author",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateCreated",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "dateUpdated",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "article",
+            "otherEntityRelationshipName": "review",
+            "relationshipName": "article",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "user",
+            "otherEntityRelationshipName": "review",
+            "relationshipName": "createdBy",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20191125175105",
+    "entityTableName": "review",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

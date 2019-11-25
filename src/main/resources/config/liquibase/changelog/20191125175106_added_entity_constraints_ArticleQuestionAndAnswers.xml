@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity ArticleQuestionAndAnswers.
+    -->
+    <changeSet id="20191125175106-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="article_id"
+                                 baseTableName="article_question_and_answers"
+                                 constraintName="fk_article_question_and_answers_article_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="article"/>
+
+        <addForeignKeyConstraint baseColumnNames="answer_id"
+                                 baseTableName="article_question_and_answers"
+                                 constraintName="fk_article_question_and_answers_answer_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="article_question_and_answers"/>
+
+        <addForeignKeyConstraint baseColumnNames="created_by_id"
+                                 baseTableName="article_question_and_answers"
+                                 constraintName="fk_article_question_and_answers_created_by_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"/>
+
+    </changeSet>
+</databaseChangeLog>

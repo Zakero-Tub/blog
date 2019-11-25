@@ -16,7 +16,7 @@
 logging:
   level:
     ROOT: DEBUG
-    io.github.jhipster: DEBUG
+    io.github.jhipster: DEBU
     com.advanced.blog: DEBUG
 
 eureka:
@@ -46,8 +46,8 @@ spring:
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     url: jdbc:postgresql://localhost:5432/Blog
-    username: Blog
-    password:
+    username: postgres
+    password: postgres
     hikari:
       poolName: Hikari
       auto-commit: false

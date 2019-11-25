@@ -1,0 +1,62 @@
+{
+    "name": "ArticleQuestionAndAnswers",
+    "fields": [
+        {
+            "fieldName": "content",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "votes",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "author",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateCreated",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "dateUpdated",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "article",
+            "otherEntityRelationshipName": "articleQuestionAndAnswers",
+            "relationshipName": "article",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "articleQuestionAndAnswers",
+            "otherEntityRelationshipName": "articleQuestionAndAnswers",
+            "relationshipName": "answer",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "user",
+            "otherEntityRelationshipName": "articleQuestionAndAnswers",
+            "relationshipName": "createdBy",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20191125175106",
+    "entityTableName": "article_question_and_answers",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

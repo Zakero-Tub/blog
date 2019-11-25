@@ -1,0 +1,67 @@
+{
+    "name": "Article",
+    "fields": [
+        {
+            "fieldName": "title",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "content",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "numberOfViews",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "dateCreated",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "dataUpdated",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "media",
+            "otherEntityRelationshipName": "article",
+            "relationshipName": "thumbnail",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "user",
+            "otherEntityRelationshipName": "article",
+            "relationshipName": "createdBy",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "media",
+            "otherEntityRelationshipName": "article",
+            "relationshipName": "gallery",
+            "otherEntityField": "gallery",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "tag",
+            "otherEntityRelationshipName": "article",
+            "relationshipName": "tags",
+            "otherEntityField": "tags",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20191125175102",
+    "entityTableName": "article",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,72 @@
+entity Article{
+	title String,
+    content String,
+    numberOfViews Long,
+    dateCreated Instant,
+    dataUpdated Instant
+
+}
+
+relationship ManyToOne {
+	Article{thumbnail} to Media,
+    Article{createdBy} to User,
+    Review{article} to Article,
+    ArticleQuestionAndAnswers{article} to Article,
+    ArticleQuestionAndAnswers{answer} to ArticleQuestionAndAnswers,
+    Review{createdBy} to User,
+    ArticleQuestionAndAnswers{createdBy} to User
+}
+
+relationship ManyToMany {
+	Article{gallery(gallery)} to Media {article},
+    Article{tags(tags)} to Tag{article}
+}
+
+
+entity Media{
+	name String,
+    description String,
+    url String,
+    type MediaType
+}
+
+enum MediaType{
+	IMAGE,
+    VIDEO
+}
+
+entity Tag{
+	name String
+}
+
+
+entity Review {
+	content String,
+    rating Integer,
+    votes Integer,
+    author String,
+    dateCreated Instant,
+    dateUpdated Instant
+}
+
+entity ArticleQuestionAndAnswers {
+	content String,
+    votes Integer,
+    author String,
+    email String,
+    dateCreated Instant,
+    dateUpdated Instant
+}
+
+
+// Set pagination options
+paginate all with infinite-scroll
+
+// Use Data Transfert Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+
+// Set an angular suffix
+// angularSuffix * with mySuffix
